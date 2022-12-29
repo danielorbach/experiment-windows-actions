@@ -18,19 +18,20 @@ on:
 
 jobs:
   build:
+    # https://github.blog/changelog/2021-11-16-github-actions-windows-server-2022-with-visual-studio-2022-is-now-generally-available-on-github-hosted-runners/
     runs-on: windows-2022
 
     steps:
     
-    - name: Enable Developer Command Prompt
-      uses: ilammy/msvc-dev-cmd@v1.12.0
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v1
 
     - name: Where cl.exe
       if: always()
       run: cl.exe
-    - name: Where make.exe
+    - name: Where make
       if: always()
-      run: make.exe
+      run: make
     - name: Where cmake.exe
       if: always()
       run: cmake.exe
