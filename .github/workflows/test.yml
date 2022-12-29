@@ -25,6 +25,8 @@ jobs:
     
     - name: setup-msbuild
       uses: microsoft/setup-msbuild@v1
+      with:
+        msbuild-architecture: x64
 
     - name: Where cl.exe
       if: always()
@@ -41,4 +43,4 @@ jobs:
 
 # https://github.com/danielorbach/experiment-windows-actions/actions/workflows/test.yml
 # gh workflow run test.yml --ref where-tools
-# gh run watch test.yml
+# gh run watch -i 1
