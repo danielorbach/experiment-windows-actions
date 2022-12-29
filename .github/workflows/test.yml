@@ -1,0 +1,31 @@
+# This is a basic workflow that is manually triggered
+# https://github.com/actions/starter-workflows/blob/main/automation/manual.yml
+# https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow?tool=cli
+
+name: Test Tools
+
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    # inputs:
+    #   name:
+    #     # Friendly description to be shown in the UI instead of 'name'
+    #     description: 'Person to greet'
+    #     # Default value if no value is explicitly provided
+    #     default: 'World'
+    #     # Input has to be provided for the workflow to run
+    #     required: true
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+    - name: Where cl.exe
+      run: cl.exe
+    - name: Where make.exe
+      run: make.exe
+    - name: Where cmake.exe
+      run: cmake.exe
+    - name: Where msvc.exe
+      run: msvc.exe
