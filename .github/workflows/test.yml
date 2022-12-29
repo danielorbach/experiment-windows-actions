@@ -38,7 +38,7 @@ jobs:
 
     - name: Build source
       working-directory: make-4.4
-      run: build_w32.bat
+      run: ./build_w32.bat
 
 # https://github.com/danielorbach/experiment-windows-actions/actions/workflows/test.yml
 # gh workflow run test.yml --ref build
