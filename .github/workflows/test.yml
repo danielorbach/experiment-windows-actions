@@ -21,6 +21,10 @@ jobs:
     runs-on: windows-2022
 
     steps:
+    
+    - name: Enable Developer Command Prompt
+      uses: ilammy/msvc-dev-cmd@v1.12.0
+
     - name: Where cl.exe
       if: always()
       run: cl.exe
@@ -33,3 +37,7 @@ jobs:
     - name: Where msvc.exe
       if: always()
       run: msvc.exe
+
+# https://github.com/danielorbach/experiment-windows-actions/actions/workflows/test.yml
+# gh workflow run test.yml --ref where-tools
+# gh run watch test.yml
