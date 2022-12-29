@@ -22,10 +22,14 @@ jobs:
 
     steps:
     - name: Where cl.exe
+      if: always()
       run: cl.exe
     - name: Where make.exe
+      if: always()
       run: make.exe
     - name: Where cmake.exe
+      if: always()
       run: cmake.exe
     - name: Where msvc.exe
+      if: always()
       run: msvc.exe
