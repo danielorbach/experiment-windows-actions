@@ -31,16 +31,13 @@ jobs:
 
     # https://www.gnu.org/software/make/
     - name: Download source
-      run: echo https://ftp.gnu.org/gnu/make/make-4.4.tar.gz
-    - name: wget
-      if: always()
-      run: wget
-    - name: curl
-      if: always()
-      run: curl
-    - name: tar
-      if: always()
-      run: tar
+      run: curl -o src.tgz https://ftp.gnu.org/gnu/make/make-4.4.tar.gz
+  
+    - name: Extract source
+      run: tar -xzf src.tgz
+
+    - name: ls
+      run: ls make-4.4
 
 # https://github.com/danielorbach/experiment-windows-actions/actions/workflows/test.yml
 # gh workflow run test.yml --ref build
