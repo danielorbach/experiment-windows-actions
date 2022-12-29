@@ -23,24 +23,25 @@ jobs:
 
     steps:
     
-    - name: setup-msbuild
-      uses: microsoft/setup-msbuild@v1
-      with:
-        msbuild-architecture: x64
+    - name: Enable Developer Command Prompt
+      uses: ilammy/msvc-dev-cmd@v1.12.0
 
     - name: Where cl.exe
-      if: always()
       run: cl.exe
-    - name: Where make
+
+    # https://www.gnu.org/software/make/
+    - name: Download source
+      run: echo https://ftp.gnu.org/gnu/make/make-4.4.tar.gz
+    - name: wget
       if: always()
-      run: make
-    - name: Where cmake.exe
+      run: wget
+    - name: curl
       if: always()
-      run: cmake.exe
-    - name: Where msvc.exe
+      run: curl
+    - name: tar
       if: always()
-      run: msvc.exe
+      run: tar
 
 # https://github.com/danielorbach/experiment-windows-actions/actions/workflows/test.yml
-# gh workflow run test.yml --ref where-tools
+# gh workflow run test.yml --ref build
 # gh run watch -i 1
