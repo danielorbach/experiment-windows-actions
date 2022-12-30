@@ -36,10 +36,17 @@ jobs:
     - name: Extract source
       run: tar -xzf src.tgz
 
+    # https://stackoverflow.com/a/70209605
     - name: Build source
       working-directory: make-4.4
       run: ./build_w32.bat
 
+    # https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
+    - uses: actions/upload-artifact@v3.1.1
+      with:
+        path: make-4.4/WinRel/
+
+
 # https://github.com/danielorbach/experiment-windows-actions/actions/workflows/test.yml
-# gh workflow run test.yml --ref build
+# gh workflow run test.yml --ref artefacts
 # gh run watch -i 1
